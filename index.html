@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CardWebsite</title>
+    <link rel="stylesheet" href="./src/css/input.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-base-100">
+    <div class="navbar bg-base-100 shadow-lg sticky top-0 z-50">
+        <div class="navbar-start">
+            <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"></path>
+                    </svg>
+                </div>
+                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <li><a>Products</a></li>
+                    <li><a>Categories</a></li>
+                    <li><a>About</a></li>
+                    <li><a>Contact</a></li>
+                </ul>
+            </div>
+            <a class="btn btn-ghost text-xl font-bold">
+                <i class="fas fa-bolt text-primary"></i>
+                TechStore
+            </a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1">
+                <li><a class="hover:text-primary">Products</a></li>
+                <li><a class="hover:text-primary">Categories</a></li>
+                <li><a class="hover:text-primary">About</a></li>
+                <li><a class="hover:text-primary">Contact</a></li>
+            </ul>
+        </div>
+        <div class="navbar-end">
+            <div class="dropdown dropdown-end">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                    <div class="indicator">
+                        <i class="fas fa-shopping-cart text-lg"></i>
+                        <span class="badge badge-sm badge-primary indicator-item" id="cart-count">0</span>
+                    </div>
+                </div>
+                <div tabindex="0" class="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
+                    <div class="card-body">
+                        <span class="font-bold text-lg">Cart Items</span>
+                        <span class="text-info">Subtotal: $<span id="cart-total">0</span></span>
+                        <div class="card-actions">
+                            <button class="btn btn-primary btn-block">View cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary ml-2">Sign In</button>
+        </div>
+    </div>
+
+    <div class="hero min-h-screen bg-gradient-to-br from-primary to-secondary">
+        <div class="hero-content text-center text-primary-content">
+            <div class="max-w-md">
+                <h1 class="mb-5 text-5xl font-bold animate-pulse">Hello There</h1>
+                <p class="mb-5 text-lg">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                <button class="btn btn-accent btn-lg">
+                    <i class="fas fa-shopping-bag mr-2"></i>
+                    Shop Now
+                </button>
+            </div>
+        </div>
+        <div class="hero-overlay bg-opacity-20"></div>
+    </div>
+
+
+    <div id="products" class="py-16 bg-base-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">Featured Products</h2>
+                <p class="text-base-content/70 text-lg">Discover our handpicked selection of premium electronics</p>
+            </div>
+            
+           
+
+   
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="products-grid">
+           
+                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 product-card" data-category="smartphones">
+                    <figure class="px-4 pt-4">
+                        <img src="https://www.apple.com/newsroom/images/2023/09/apple-unveils-iphone-15-pro-and-iphone-15-pro-max/article/Apple-iPhone-15-Pro-lineup-color-lineup-230912_big.jpg.large.jpg" alt="iPhone 15 Pro" class="rounded-xl object-cover h-48 w-full" />
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title text-lg">iPhone 15 Pro</h2>
+                        <p class="text-sm text-base-content/70">Latest iPhone with titanium design and advanced camera system</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-2xl font-bold text-primary">$999</span>
+                          
+                        </div>
+                        <div class="card-actions justify-end mt-4">
+                            <button class="btn btn-primary btn-block buy-btn" data-product="iPhone 15 Pro" data-price="999">
+                                <i class="fas fa-shopping-cart mr-2"></i>
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 product-card" data-category="laptops">
+                    <figure class="px-4 pt-4">
+                        <img src="https://maxcom.uz/storage/product/eyaCeWsLVSZIOZ9qmakjDM4lgCxeonQ4fhPOoOZ7.png" alt="MacBook Pro" class="rounded-xl object-cover h-48 w-full" />
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title text-lg">MacBook Pro 16"</h2>
+                        <p class="text-sm text-base-content/70">Powerful laptop with M3 chip for professional workflows</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-2xl font-bold text-primary">$2,499</span>
+                            
+                        </div>
+                        <div class="card-actions justify-end mt-4">
+                            <button class="btn btn-primary btn-block buy-btn" data-product="MacBook Pro 16" data-price="2499">
+                                <i class="fas fa-shopping-cart mr-2"></i>
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 product-card" data-category="accessories">
+                    <figure class="px-4 pt-4">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLe-RWnt78dcID8PrK4OuGaj79JF0iJDbG6Q&s" alt="AirPods Pro" class="rounded-xl object-cover h-48 w-full" />
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title text-lg">AirPods Pro</h2>
+                        <p class="text-sm text-base-content/70">Premium wireless earbuds with active noise cancellation</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-2xl font-bold text-primary">$249</span>
+                        </div>
+                        <div class="card-actions justify-end mt-4">
+                            <button class="btn btn-primary btn-block buy-btn" data-product="AirPods Pro" data-price="249">
+                                <i class="fas fa-shopping-cart mr-2"></i>
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 product-card" data-category="smartphones">
+                    <figure class="px-4 pt-4">
+                        <img src="https://image-us.samsung.com/SamsungUS/home/smartphones/galaxy-s24/gallery-images/FNL_Gallery_Base_800x600_Slide_Exclusive_Colors_1.jpg?$product-details-jpg$" alt="Samsung Galaxy S24" class="rounded-xl object-cover h-48 w-full" />
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title text-lg">Samsung Galaxy S24</h2>
+                        <p class="text-sm text-base-content/70">Flagship Android phone with AI-powered features</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-2xl font-bold text-primary">$899</span>
+                           
+                        </div>
+                        <div class="card-actions justify-end mt-4">
+                            <button class="btn btn-primary btn-block buy-btn" data-product="Samsung Galaxy S24" data-price="899">
+                                <i class="fas fa-shopping-cart mr-2"></i>
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 product-card" data-category="laptops">
+                    <figure class="px-4 pt-4">
+                        <img src="https://m.media-amazon.com/images/I/71xnWdoSh0L._UF350,350_QL80_.jpg" alt="Dell XPS 13" class="rounded-xl object-cover h-48 w-full" />
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title text-lg">Dell XPS 13</h2>
+                        <p class="text-sm text-base-content/70">Ultra-portable laptop with stunning InfinityEdge display</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-2xl font-bold text-primary">$1,299</span>
+                        
+                        </div>
+                        <div class="card-actions justify-end mt-4">
+                            <button class="btn btn-primary btn-block buy-btn" data-product="Dell XPS 13" data-price="1299">
+                                <i class="fas fa-shopping-cart mr-2"></i>
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 product-card" data-category="accessories">
+                    <figure class="px-4 pt-4">
+                        <img src="https://www.apple.com/newsroom/images/2024/09/introducing-apple-watch-series-10/article/Apple-Watch-Series-10-lineup-240909_big.jpg.large.jpg" alt="Apple Watch" class="rounded-xl object-cover h-48 w-full" />
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title text-lg">Apple Watch Series 9</h2>
+                        <p class="text-sm text-base-content/70">Advanced smartwatch with health monitoring features</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-2xl font-bold text-primary">$399</span>
+                        
+                        </div>
+                        <div class="card-actions justify-end mt-4">
+                            <button class="btn btn-primary btn-block buy-btn" data-product="Apple Watch Series 9" data-price="399">
+                                <i class="fas fa-shopping-cart mr-2"></i>
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 product-card" data-category="accessories">
+                    <figure class="px-4 pt-4">
+                        <img src="https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-pro-finish-unselect-gallery-2-202405_FMT_WHH?wid=1280&hei=720&fmt=p-jpg&qlt=80&.v=YXpaUEtKWGhlNnNrVGZkTEo4T0xsN2dzSmpObkZCM3MrNmJ5SkhESlNDaktqSkExTHB4VHJRR1hzOGdBenBuczN0bWR6ME9RYmIrVG9PSXZFalM2aHdBb0pjWml6bllCL0Y5a1RKc2gxZjlIaERUT3FJbHFiWTlmb2lodm1tWE55UjVHcmIzQTc0UDFXY0hsUWdxUDFR&traceId=1" alt="iPad Pro" class="rounded-xl object-cover h-48 w-full" />
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title text-lg">iPad Pro 12.9"</h2>
+                        <p class="text-sm text-base-content/70">Professional tablet with M2 chip and Liquid Retina display</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-2xl font-bold text-primary">$1,099</span>
+                    
+                        </div>
+                        <div class="card-actions justify-end mt-4">
+                            <button class="btn btn-primary btn-block buy-btn" data-product="iPad Pro 12.9" data-price="1099">
+                                <i class="fas fa-shopping-cart mr-2"></i>
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+               
+                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 product-card" data-category="smartphones">
+                    <figure class="px-4 pt-4">
+                        <img src="https://media.wired.com/photos/6526b988c55060c7594b0d40/master/w_1920,c_limit/Google-Pixel-8-Pro-and-Pixel-8-Review-Gear.jpg" alt="Google Pixel 8" class="rounded-xl object-cover h-48 w-full" />
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title text-lg">Google Pixel 8</h2>
+                        <p class="text-sm text-base-content/70">Pure Android experience with advanced AI photography</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-2xl font-bold text-primary">$699</span>
+                         
+                        </div>
+                        <div class="card-actions justify-end mt-4">
+                            <button class="btn btn-primary btn-block buy-btn" data-product="Google Pixel 8" data-price="699">
+                                <i class="fas fa-shopping-cart mr-2"></i>
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="py-16 bg-base-200">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Stay Updated</h2>
+            <p class="text-base-content/70 mb-8">Get the latest deals and product updates delivered to your inbox</p>
+            <div class="max-w-md mx-auto">
+                <div class="join w-full">
+                    <input class="input input-bordered join-item flex-1" placeholder="Enter your email" type="email" />
+                    <button class="btn btn-primary join-item">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer footer-center p-10 bg-base-300 text-base-content">
+        <nav class="grid grid-flow-col gap-4">
+            <a class="link link-hover">About us</a>
+            <a class="link link-hover">Contact</a>
+            <a class="link link-hover">Jobs</a>
+            <a class="link link-hover">Press kit</a>
+        </nav>
+        <nav>
+            <div class="grid grid-flow-col gap-4">
+                <a class="text-2xl hover:text-primary"><i class="fab fa-twitter"></i></a>
+                <a class="text-2xl hover:text-primary"><i class="fab fa-youtube"></i></a>
+                <a class="text-2xl hover:text-primary"><i class="fab fa-facebook"></i></a>
+            </div>
+        </nav>
+        <aside>
+            <p>Copyright © 2025 - All right reserved</p>
+        </aside>
+    </footer>
+
+ <script src="https://cdn.tailwindcss.com"></script> 
+</body>
+</html>
